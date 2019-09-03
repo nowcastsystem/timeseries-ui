@@ -1,6 +1,8 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { UploadOutput, UploadInput, UploadFile, humanizeBytes, UploaderOptions, UploadStatus } from 'ngx-uploader';
 
+
+
 @Component({
   selector: 'ngx-uploader',
   templateUrl: './uploader.component.html',
@@ -10,7 +12,7 @@ export class UploaderComponent implements OnInit {
 
   ngOnInit() {
   }
-  url = 'http://localhost:4200/';
+  url = 'http://localhost:5001/api/fileUpload/';
   formData: FormData;
   files: UploadFile[];
   uploadInput: EventEmitter<UploadInput>;
@@ -20,7 +22,7 @@ export class UploaderComponent implements OnInit {
 
   constructor() {
   	// this.options.maxFileSize = 1000000;
-    this.options = { concurrency: 1, maxUploads: 3};
+    this.options = { concurrency: 1, maxUploads: 1000};
     this.files = [];
     this.uploadInput = new EventEmitter<UploadInput>();
     this.humanizeBytes = humanizeBytes;
@@ -32,7 +34,13 @@ export class UploaderComponent implements OnInit {
         type: 'uploadAll',
         url: this.url,
         method: 'POST',
-        data: { foo: 'bar' }
+        data: { foo: 'bar' },
+        headers: {
+        'Access-Control-Allow-Origin': 'http://localhost',
+        'Access-Control-Expose-Headers': 'Content-Length, X-JSON',
+        'Access-Control-Allow-Methods': 'HEAD, GET, POST, PUT, PATCH, DELETE',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With'
+        }
       };
 
       this.uploadInput.emit(event);
@@ -61,7 +69,13 @@ export class UploaderComponent implements OnInit {
       type: 'uploadAll',
       url: this.url,
       method: 'POST',
-      data: { foo: 'bar' }
+      data: { foo: 'bar' },
+      headers: {
+      'Access-Control-Allow-Origin': 'http://localhost',
+      'Access-Control-Expose-Headers': 'Content-Length, X-JSON',
+      'Access-Control-Allow-Methods': 'HEAD, GET, POST, PUT, PATCH, DELETE',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With'
+      }
     };
 
     this.uploadInput.emit(event);

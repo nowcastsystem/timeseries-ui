@@ -15,7 +15,7 @@ const routes: Routes = [{
   children: [
     {
     path: 'emile',
-    component: EmileComponent,
+    component: UploaderComponent,
     },
     {
       path: 'dashboard',
@@ -81,8 +81,12 @@ const routes: Routes = [{
     },
     {
       path: '',
-      redirectTo: 'emile',
+      redirectTo: 'uploader',
       pathMatch: 'full',
+    },
+    {
+      path: 'pages',
+      redirectTo: 'uploader',
     },
     {
       path: '**',

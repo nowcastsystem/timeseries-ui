@@ -10,4 +10,3 @@
 2. Run `python3 init.py` in this folder;
 3. * Default account: `admin`
    * Default password: `magics`
-4. Run `python3 app.py` in this folder

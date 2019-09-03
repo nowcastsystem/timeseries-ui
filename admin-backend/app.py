@@ -6,6 +6,7 @@ from routes import auth
 from routes import user
 from routes import record
 from routes import plan
+from routes import upload
 
 
 app = Flask(__name__)
@@ -13,6 +14,7 @@ app.register_blueprint(auth.auth, url_prefix='/api/auth')
 app.register_blueprint(user.user, url_prefix='/api/users')
 app.register_blueprint(record.record, url_prefix='/api/records')
 app.register_blueprint(plan.plan, url_prefix='/api/plans')
+app.register_blueprint(upload.upload, url_prefix='/api/fileUpload')
 
 CORS(app)
 
