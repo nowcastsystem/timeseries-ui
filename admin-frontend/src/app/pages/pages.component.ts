@@ -7,12 +7,14 @@ import { MENU_ITEMS } from './pages-menu';
   styleUrls: ['pages.component.scss'],
   template: `
     <ngx-one-column-layout>
-      <nb-menu [items]="menu"></nb-menu>
+      
       <router-outlet></router-outlet>
     </ngx-one-column-layout>
   `,
 })
 export class PagesComponent {
 
-  menu = MENU_ITEMS;
+  // menu = MENU_ITEMS;
 }
+
+// <nb-menu [items]="menu"></nb-menu>

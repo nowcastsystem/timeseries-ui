@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { NbMenuModule } from '@nebular/theme';
+import { NbButtonModule} from '@nebular/theme';
+import { NbCardComponent} from '@nebular/theme';
+import { NbCardModule} from '@nebular/theme';
 
 import { ThemeModule } from '../@theme/theme.module';
 import { PagesComponent } from './pages.component';
@@ -15,12 +18,14 @@ import { UploaderComponent } from './uploader/uploader.component';
   imports: [
     PagesRoutingModule,
     ThemeModule,
-    NbMenuModule,
+    // NbMenuModule,
     DashboardModule,
     ECommerceModule,
     EmileModule,
     MiscellaneousModule,
     NgxUploaderModule,
+    NbButtonModule,
+    NbCardModule,
   ],
   declarations: [
     PagesComponent,
